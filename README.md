@@ -32,3 +32,22 @@ Mobile retro 8-bit handheld console, virtual gamepad, LCD screen shell, and cart
   - Backup export and import.
 - **Cartridge Workshop**: Custom cartridge burner to create new retro games on device.
 - **Developer Toolkit**: Real-time FPS monitoring, frame delta timing, active game stats, pause and single-frame advance.
+
+## Testing & Installing on Your Phone
+
+You can install and test Minuteman on your phone using either method:
+
+### Method 1: Android Native APK (Automated via GitHub Actions)
+1. Push these changes to your GitHub repository (`main` branch).
+2. Go to your repository on GitHub and click the **Actions** tab.
+3. Select the **Build Android APK** workflow run.
+4. Once completed, scroll to the bottom **Artifacts** section and download **Minuteman-Android-APK**.
+5. Transfer or open the downloaded `app-debug.apk` on your Android phone to install!
+
+### Method 2: Install directly as a Progressive Web App (PWA)
+1. Open the app link on your phone in Chrome (Android) or Safari (iOS).
+2. On Android:
+   - Tap the green **Install App** button inside the console header, or tap Chrome menu (`⋮`) -> **Install app** / **Add to Home screen**.
+3. On iOS (iPhone / iPad):
+   - Tap Safari's **Share** button (`⎋`) -> tap **Add to Home Screen**.
+4. Minuteman will be installed as a full-screen, standalone app on your home screen with offline caching, haptics, and retro audio!

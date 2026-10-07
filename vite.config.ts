@@ -5,8 +5,11 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
+  const isGH = process.env.GITHUB_ACTIONS === 'true';
+  const base = process.env.BASE_URL || (isGH ? '/minuteman-shell/' : '/');
+
   return {
-    base: '/minuteman-shell/',
+    base,
     plugins: [
       react(),
       tailwindcss(),
@@ -14,7 +17,7 @@ export default defineConfig(() => {
         registerType: 'autoUpdate',
         includeAssets: ['icon.svg', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
         manifest: {
-          id: '/minuteman-shell/',
+          id: base,
           name: 'Minuteman Virtual Gamepad',
           short_name: 'Minuteman',
           description: 'Mobile virtual gamepad console, retro 8-bit LCD shell, and cartridge runner with dynamic cartridge library.',
@@ -22,23 +25,23 @@ export default defineConfig(() => {
           background_color: '#16191b',
           display: 'standalone',
           orientation: 'portrait',
-          start_url: '/minuteman-shell/',
-          scope: '/minuteman-shell/',
+          start_url: base,
+          scope: base,
           icons: [
             {
-              src: '/minuteman-shell/pwa-192x192.png',
+              src: `${base}pwa-192x192.png`.replace('//', '/'),
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/minuteman-shell/pwa-512x512.png',
+              src: `${base}pwa-512x512.png`.replace('//', '/'),
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/minuteman-shell/pwa-maskable-512x512.png',
+              src: `${base}pwa-maskable-512x512.png`.replace('//', '/'),
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
